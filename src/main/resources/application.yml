@@ -1,0 +1,30 @@
+#io:
+#  github:
+#    luankuhlmann:
+#      service:
+#        JokeServiceForApiConsume:
+#          mp-rest:
+#            url: "https://official-joke-api.appspot.com/"
+
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: postgres
+    password: root
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/jokes_library
+  smallrye-jwt:
+    enable: true
+
+mp:
+  jwt:
+    verify:
+      publickey:
+        location: publickey.pem
+      issuer: https://github.com/luankuhlmann
+
+com:
+  ard333:
+    quarkusjwt:
+      jwt:
+        duration: 3600
